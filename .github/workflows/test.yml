@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  workflow_call:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 🛒 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ✅ Run tests
+        run: ./gradlew check
+
+#      - name: Add coverage to PR
+#        if: github.event_name == 'pull_request'
+#        uses: madrapps/jacoco-report@v1.3
+#        with:
+#          paths: ${{ github.workspace }}/service/build/reports/kover/report.xml
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          title: Coverage Summary
+#          update-comment: true
+#
+#      - name: 📄 Archive reports
+#        uses: actions/upload-artifact@v3
+#        if: always()
+#        with:
+#          name: test-reports
+#          path: service/build/reports/

@@ -1,0 +1,31 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+  pull-requests: write
+
+jobs:
+  #  lint:
+  #    name: 🛁 Code standards
+  #    uses: ./.github/workflows/lint.yml
+
+  test:
+    name: ✅ Test
+    uses: ./.github/workflows/test.yml
+
+  build:
+    name: 🏗️ Build
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  release:
+    name: 🚢 Release
+    needs: [ test, build ]
+    uses: ./.github/workflows/release.yml

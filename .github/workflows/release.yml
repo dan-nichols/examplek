@@ -1,0 +1,34 @@
+name: Release
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🔣 Get current version
+        run: |
+          ./gradlew printVersion
+          echo "VERSION=$(./gradlew printVersion --quiet --console=plain)" >> "$GITHUB_ENV"
+
+      - name: 📤 Publish Package
+        run: ./gradlew model:publish
+        env:
+          MAVEN_USERNAME: ${{ github.actor }}
+          MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🧵 Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ env.VERSION }}
+          name: Release ${{ env.VERSION }}
+          generateReleaseNotes: true
