@@ -3,15 +3,12 @@ name: Release
 on:
   workflow_call:
 
-permissions:
-  contents: read
-  packages: write
-
 jobs:
   release:
     runs-on: macos-latest
     permissions:
       contents: write
+      packages: write
     steps:
       - uses: actions/checkout@v3
 
