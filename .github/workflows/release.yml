@@ -21,7 +21,7 @@ jobs:
           echo "VERSION=$(./gradlew printVersion --quiet --console=plain)" >> "$GITHUB_ENV"
 
       - name: 📤 Publish Package
-        run: ./gradlew model:publish
+        run: ./gradlew publish
         env:
           MAVEN_USERNAME: ${{ github.actor }}
           MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
