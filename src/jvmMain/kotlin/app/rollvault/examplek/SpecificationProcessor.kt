@@ -1,4 +1,4 @@
-package com.dannichols.examplek
+package app.rollvault.examplek
 
 import com.google.devtools.ksp.KspExperimental
 import com.google.devtools.ksp.getAnnotationsByType
@@ -176,7 +176,11 @@ class SpecificationProcessor(private val environment: SymbolProcessorEnvironment
             }
         }
 
-        specClass.createMdFile("specs/${specClass.simpleName.asString()}", markdownText)
+        val filename: String = spec.filename.ifBlank {
+            specClass.simpleName.asString()
+        }
+
+        specClass.createMdFile("specs/$filename", markdownText)
     }
 
     private fun KSClassDeclaration.createKtFile(packageName: String, className: String, text: String) {
