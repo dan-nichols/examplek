@@ -1,4 +1,4 @@
-package com.dannichols.examplek
+package app.rollvault.examplek
 
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.SOURCE)
