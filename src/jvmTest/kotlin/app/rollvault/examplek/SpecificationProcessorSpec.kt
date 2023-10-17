@@ -7,7 +7,7 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 private const val KOTLIN_VERSION = "1.9.10"
-private const val REPO = "dan-nichols/examplek"
+private const val REPO = "rollvault/examplek"
 private const val REPO_LOCATION = "https://github.com/$REPO"
 private const val SHIELDS = "https://img.shields.io"
 private const val BADGE = "$SHIELDS/badge"

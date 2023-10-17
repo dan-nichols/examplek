@@ -1,8 +1,8 @@
 # ExampleK
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9.10-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
-[![License](https://img.shields.io/github/license/dan-nichols/examplek)](https://github.com/dan-nichols/examplek/blob/main/LICENSE)
-[![Github Actions](https://github.com/dan-nichols/examplek/actions/workflows/continuous-deployment.yml/badge.svg)](https://github.com/dan-nichols/examplek/actions/workflows/continuous-deployment.yml)
+[![License](https://img.shields.io/github/license/rollvault/examplek)](https://github.com/rollvault/examplek/blob/main/LICENSE)
+[![Github Actions](https://github.com/rollvault/examplek/actions/workflows/continuous-deployment.yml/badge.svg)](https://github.com/rollvault/examplek/actions/workflows/continuous-deployment.yml)
 
 ![badge-android](https://img.shields.io/badge/-android-6EDB8D.svg?style=flat)
 ![badge-jvm](https://img.shields.io/badge/-jvm-DB413D.svg?style=flat)
